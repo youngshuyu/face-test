@@ -1,12 +1,12 @@
 <!--pages/face/index.wxml-->
 <view class="container">
     <view class="picture">
-        <image src="" />
+        <image mode="" src="{{src}}" />
     </view>
-    <view class="infos">
-        <view class="gender">性别：男</view>
-        <view class="age">年龄：26</view>
-        <view class="yanzhi">颜值：100</view>
+    <view class="infos" wx:if="{{face}}">
+        <view class="gender">性别：{{face.gender >= 50 ? '男':'女'}}</view>
+        <view class="age">年龄：{{face.age}}</view>
+        <view class="yanzhi">颜值：{{face.beauty}}</view>
     </view>
-    <button type="primary">点击上传或拍照</button>
+    <button type="primary" bind:tap="upPhoto">点击上传或拍照</button>
 </view>

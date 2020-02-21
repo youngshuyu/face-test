@@ -12,8 +12,12 @@ page {
     padding: 0;
 }
 .picture {
-    height: 260px;
+    height: 310px;
     background-color: skyblue;
+    width: 100%;
+    padding-top: 20px;
+}
+image {
     width: 100%;
 }
 .container .infos {
@@ -23,4 +27,7 @@ page {
 .infos view{
     text-align: center;
     margin-top: 15px;
+}
+button {
+    width: 100%;
 }

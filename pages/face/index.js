@@ -1,66 +1,35 @@
 // pages/face/index.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+Page ({
   data: {
-
+    src:"",
+    face: null
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  upPhoto () {
+    // 选择图片或拍照
+    var that = this
+    wx.chooseImage({
+      count: 1,
+      success(res) {
+        wx.showLoading({
+          title: '正在分析～～'
+        })
+        // 上传
+        wx.uploadFile({
+          url: 'https://ai.qq.com/cgi-bin/appdemo_detectface?g_tk=5381',
+          filePath: res.tempFiles[0].path,
+          name: 'image_file',
+          success (info) {
+            var data = JSON.parse(info.data)
+            console.log(data);
+            that.setData({
+              // 展示照片
+              src: res.tempFiles[0].path,
+              face: data.data.face[0]
+            })
+            wx.hideLoading();
+          }
+        })
+      }
+    })
   }
 })
