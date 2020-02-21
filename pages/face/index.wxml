@@ -1,0 +1,12 @@
+<!--pages/face/index.wxml-->
+<view class="container">
+    <view class="picture">
+        <image src="" />
+    </view>
+    <view class="infos">
+        <view class="gender">性别：男</view>
+        <view class="age">年龄：26</view>
+        <view class="yanzhi">颜值：100</view>
+    </view>
+    <button type="primary">点击上传或拍照</button>
+</view>

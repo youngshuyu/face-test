@@ -1,0 +1,26 @@
+/* pages/face/index.wxss */
+page {
+    height: 100%;
+    width: 100%;
+}
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.picture {
+    height: 260px;
+    background-color: skyblue;
+    width: 100%;
+}
+.container .infos {
+    flex: 1;
+}
+
+.infos view{
+    text-align: center;
+    margin-top: 15px;
+}
